@@ -1,2 +1,2 @@
-model_checkpoint_path: "plane-dqn-261000"
-all_model_checkpoint_paths: "plane-dqn-261000"
+model_checkpoint_path: "plane-dqn-3000"
+all_model_checkpoint_paths: "plane-dqn-3000"
