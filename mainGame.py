@@ -20,10 +20,10 @@ from collections import deque
 GAME = 'plane' # the name of the game being played for log files
 ACTIONS = 3 # number of valid actions
 GAMMA = 0.99 # decay rate of past observations
-OBSERVE = 10000. # timesteps to observe before training
+OBSERVE = 100. # timesteps to observe before training
 EXPLORE = 2000000. # frames over which to anneal epsilon
 FINAL_EPSILON = 0.0001 # final value of epsilon
-INITIAL_EPSILON = 0.1 # starting value of epsilon
+INITIAL_EPSILON = 0.5 # starting value of epsilon
 REPLAY_MEMORY = 50000 # number of previous transitions to remember
 BATCH = 32 # size of minibatch
 FRAME_PER_ACTION = 1
@@ -366,7 +366,7 @@ while running:
     t += 1
 
     # save progress every 10000 iterations
-    if t % 3000 == 0:
+    if t % 10000 == 0:
         saver.save(sess, 'saved_networks/' + GAME + '-dqn', global_step=t)
 
     # print info
