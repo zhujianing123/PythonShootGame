@@ -46,6 +46,10 @@ class Game(object):
 
     # ai控制棒子左右移动；返回游戏界面像素数和对应的奖励。(像素->奖励->强化棒子往奖励高的方向移动)
     def step(self, action):
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
 
         if action == MOVE_LEFT:
             self.bar_pos_x = self.bar_pos_x - 2
@@ -94,7 +98,7 @@ INITIAL_EPSILON = 1.0
 FINAL_EPSILON = 0.05
 # 测试观测次数
 EXPLORE = 500000
-OBSERVE = 500000
+OBSERVE = 500
 # 存储过往经验大小
 REPLAY_MEMORY = 500000
 
