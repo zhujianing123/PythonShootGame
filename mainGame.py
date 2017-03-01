@@ -20,7 +20,7 @@ from collections import deque
 GAME = 'plane' # the name of the game being played for log files
 ACTIONS = 3 # number of valid actions
 GAMMA = 0.99 # decay rate of past observations
-OBSERVE = 100. # timesteps to observe before training
+OBSERVE = 10000. # timesteps to observe before training
 EXPLORE = 2000000. # frames over which to anneal epsilon
 FINAL_EPSILON = 0.0001 # final value of epsilon
 INITIAL_EPSILON = 0.5 # starting value of epsilon
@@ -235,8 +235,9 @@ while running:
         screen.blit(player.image[player.img_index], player.rect)
         player_down_index += 1
         reward = -1
-        if player_down_index > 47:
-            running = False
+        running = False
+        # if player_down_index > 47:
+        #     running = False
 
     # 绘制击毁动画
     for enemy_down in enemies_down:
